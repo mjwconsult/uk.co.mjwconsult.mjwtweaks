@@ -1,0 +1,50 @@
+/* civicrm/admin/extensions */
+/* Hide scrollbars on all td elements */
+div#extensions td
+{
+  overflow: hidden !important;
+}
+
+/* Set background colour for enabled extensions */
+div#extensions tr.extension-installed,
+div#extensions tr.extension-installed td
+{
+  background-color: #DDFFDD !important;
+}
+
+/* Stop text in table on event dashboard from overlapping */
+tr.crm-event td
+{
+  overflow: hidden;
+}
+
+/* On contribution pages, you can't see that elements in the dropdowns are disabled,
+ Also, enable them as they should be clickable */
+a.action-item.crm-hover-button.disabled
+{
+  opacity: 0.6;
+  pointer-events: inherit;
+}
+
+/* civicrm/admin/job Hacks to stop the table being huge */
+.page-civicrm-admin.page-civicrm-admin-job #ltype table
+{
+  max-width: 100% !important;
+  display: block;
+  word-wrap: break-word;
+}
+.page-civicrm-admin.page-civicrm-admin-job #ltype table tr th td
+{
+  width: inherit !important;
+  overflow: scroll;
+}
+
+.page-civicrm-admin.page-civicrm-admin-job #ltype table tr th:nth-of-type(2),
+.page-civicrm-a.page-civicrm-admin-job #ltype table tr th:nth-of-type(2),
+.page-civicrm-admin.page-civicrm-admin-job #ltype table tr td:nth-of-type(2),
+.page-civicrm-a.page-civicrm-admin-job #ltype table tr td:nth-of-type(2)
+{
+  width: 200px;
+  max-width: 300px;
+  overflow: hidden;
+}
