@@ -48,3 +48,36 @@ a.action-item.crm-hover-button.disabled
   max-width: 300px;
   overflow: hidden;
 }
+
+/* Adjust menubar height */
+
+#civicrm-menu
+{
+  height: 40px;
+}
+
+#civicrm-menu>li.menumain
+{
+  height: 40px !important;
+  line-height: 25px;
+}
+
+a.has-submenu
+{
+  height: 40px;
+}
+
+#civicrm-menu a
+{
+  color: #fff !important;
+}
+
+#civicrm-menu>li#crm-qsearch.menumain
+{
+  line-height: 40px;
+}
+
+#civicrm-menu .form-text
+{
+  color: #fff;
+}
