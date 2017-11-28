@@ -81,3 +81,9 @@ a.has-submenu
 {
   color: #fff;
 }
+
+/* Fix the height of the submit buttons div */
+.page-civicrm-contact-view #crm-container .crm-submit-buttons
+{
+  height: auto;
+}
