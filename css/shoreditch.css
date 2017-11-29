@@ -87,3 +87,22 @@ a.has-submenu
 {
   height: auto;
 }
+
+/* Allow for fontawesome icon on left of button */
+.crm-container input.crm-form-submit
+{
+  padding-left: 25px !important;
+}
+
+/* Make sure back button has visible fontawesome icon */
+.crm-container span.crm-button-type-back i,
+.crm-container span.crm-button-type-back input
+{
+  color: #363342 !important;
+}
+
+/* Align fontawesome on button correctly */
+.crm-i-button>.crm-i
+{
+  top: .5em;
+}
