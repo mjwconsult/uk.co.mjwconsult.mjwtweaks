@@ -106,3 +106,31 @@ a.has-submenu
 {
   top: .5em;
 }
+
+/* Make labels display correctly */
+.label
+{
+  white-space: inherit;
+}
+
+.crm-container .crm-section .label
+{
+  width: 25%;
+}
+
+.crm-container .crm-section .content
+{
+  margin-left: 25%;
+}
+
+/* Make select2 display properly */
+.select2-container a.select2-choice
+{
+  height: 2.6em;
+}
+
+.crm-public .select2-container .select2-choice .select2-arrow
+{
+  width: 2em;
+}
+
