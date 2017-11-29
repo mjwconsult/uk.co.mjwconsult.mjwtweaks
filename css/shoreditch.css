@@ -129,8 +129,14 @@ a.has-submenu
   height: 2.6em;
 }
 
-.crm-public .select2-container .select2-choice .select2-arrow
+.select2-container .select2-choice .select2-arrow
 {
   width: 2em;
+  padding: 0 !important;
+}
+
+.crm-container .crm-pager
+{
+  height: auto;
 }
 
