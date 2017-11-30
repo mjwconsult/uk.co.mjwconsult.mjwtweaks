@@ -140,3 +140,15 @@ a.has-submenu
   height: auto;
 }
 
+/* Fix for dropdown menus being cut-off on contact page */
+.page-civicrm-contact-view .crm-contact-page #mainTabContainer .ui-tabs-nav
+{
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.page-civicrm-contact-view #crm-main-content-wrapper
+{
+  overflow: visible !important;
+}
+
