@@ -152,3 +152,9 @@ a.has-submenu
   overflow: visible !important;
 }
 
+/* Width of checkbox field in searches */
+.crm-container form .crm-content-block .crm-results-block div table:not(.crm-table-group-summary) th:first-child,
+.crm-container form .crm-content-block .crm-results-block div table:not(.crm-table-group-summary) td:first-child
+{
+  width: 35px;
+}
