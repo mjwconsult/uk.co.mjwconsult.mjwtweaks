@@ -158,3 +158,15 @@ a.has-submenu
 {
   width: 35px;
 }
+
+/* Fix profile form being displayed with two narrow columns on left/right */
+.page-civicrm-admin .CRM_UF_Form_Group#Group td.html-adjust
+{
+  width: auto;
+}
+
+/* Profile don't show extra border around buttons - span probably shouldn't have crm-button set */
+.crm-container span.crm-button
+{
+  border: 0;
+}
