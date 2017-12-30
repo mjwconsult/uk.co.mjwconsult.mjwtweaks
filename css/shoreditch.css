@@ -179,7 +179,7 @@ a.has-submenu
 
 /* Case dashboard "counts" alignment */
 tr.crm-case-caseStatus td.label {
-  display: inherit;
+  display: table-cell;
   line-height: inherit;
   color: inherit;
 }
