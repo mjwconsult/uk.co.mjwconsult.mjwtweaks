@@ -170,3 +170,16 @@ a.has-submenu
 {
   border: 0;
 }
+
+/* Stop checkboxes being hidden on contribution pages (should be added by js)
+.crm-container input[type=checkbox], .crm-container input[type=radio] {
+  display: block;
+}
+*/
+
+/* Case dashboard "counts" alignment */
+tr.crm-case-caseStatus td.label {
+  display: inherit;
+  line-height: inherit;
+  color: inherit;
+}

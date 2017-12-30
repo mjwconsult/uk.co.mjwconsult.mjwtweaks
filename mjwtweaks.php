@@ -130,6 +130,23 @@ function mjwtweaks_civicrm_alterSettingsFolders(&$metaDataFolders = NULL) {
  * @param string $region
  */
 function mjwtweaks_civicrm_coreResourceList(&$list, $region) {
-  Civi::resources()
-    ->addStyleFile(E::LONG_NAME, 'css/shoreditch.css', 0, 'page-header');
+//  Civi::resources()
+//    ->addStyleFile(E::LONG_NAME, 'css/shoreditch.css', 0, 'page-header');
 }
+
+/**
+ * Implementation of hook_civicrm_alterContent
+ *
+ * Adding civicrm_stripe.js in a way that works for webforms and (some) Civi forms.
+ * hook_civicrm_buildForm is not called for webforms
+ *
+ * @return void
+ */
+function mjwtweaks_civicrm_alterContent(&$content, $context, $tplName, &$object) {
+  $cssURL = CRM_Core_Resources::singleton()
+    ->getUrl('uk.co.mjwconsult.mjwtweaks', 'css/shoreditch.css');
+  $content = "<style>
+  @import url(\"{$cssURL}\");
+</style>" . $content;
+}
+
