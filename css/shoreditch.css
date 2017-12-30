@@ -183,3 +183,9 @@ tr.crm-case-caseStatus td.label {
   line-height: inherit;
   color: inherit;
 }
+
+/* Case dashboard buttons spacing */
+#crm-container div.crm-case-dashboard-buttons {
+  height: auto !important;
+  margin: 10px;
+}
