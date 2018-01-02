@@ -213,5 +213,5 @@ table.crm-info-panel tr {
 table.crm-info-panel td {
   border: none !important;
   padding: 8px;
-  display: block;
+  display: inline-block;
 }
