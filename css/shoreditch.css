@@ -219,6 +219,6 @@ table.crm-info-panel td {
 }
 
 /* Pad control elements on case */
-div.case-control-panel div {
+div.case-control-panel > div {
   padding: 5px 20px;
 }
