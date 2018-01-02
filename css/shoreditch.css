@@ -202,10 +202,12 @@ td.crm-admin-options-label {
   vertical-align: middle;
 }
 
+/* Full width datatable in container */
 table .crm-ajax-table.dataTable {
   width: auto !important;
 }
 
+/* For info-panel display lines between each element and space them nicely */
 table.crm-info-panel tr {
   border-bottom: 1px solid rgb(211, 222, 226) !important;
 }
@@ -214,4 +216,9 @@ table.crm-info-panel td {
   border: none !important;
   padding: 8px;
   display: inline-block;
+}
+
+/* Pad control elements on case */
+div.case-control-panel div {
+  padding: 5px 20px;
 }
