@@ -195,7 +195,7 @@ td.crm-admin-options-label {
   color: inherit !important;
 }
 
-tr.crm-case-caseview-client td.label {
+#crm-container tr.crm-case-caseview-client td.label {
   padding: 4px 4px 4px 20px;
   border: none;
   vertical-align: middle;
