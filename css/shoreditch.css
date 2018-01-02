@@ -205,3 +205,11 @@ td.crm-admin-options-label {
 table .crm-ajax-table.dataTable {
   width: auto !important;
 }
+
+table.crm-info-panel tr {
+  border-bottom: 1px solid rgb(211, 222, 226) !important;
+}
+
+table.crm-info-panel td {
+  border: none !important;
+}
