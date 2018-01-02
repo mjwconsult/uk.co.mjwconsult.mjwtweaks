@@ -195,8 +195,13 @@ td.crm-admin-options-label {
   color: inherit !important;
 }
 
+/* On case overview, show summary elements without border and properly aligned */
 #crm-container table.case-summary tr td.label {
   padding: 4px 4px 4px 20px;
   border: none;
   vertical-align: middle;
+}
+
+table .crm-ajax-table.dataTable {
+  width: auto !important;
 }
