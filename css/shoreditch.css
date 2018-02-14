@@ -222,3 +222,20 @@ table.crm-info-panel td {
 div.case-control-panel > div {
   padding: 5px 20px;
 }
+
+/* Activity form custom data view full-width */
+table.crm-info-panel tr.crm-activity-form-block-custom_data td {
+  display: block;
+  padding: inherit;
+}
+
+.page-civicrm-activity .CRM_Activity_Form_Activity .crm-accordion-wrapper,
+.page-civicrm-activity .CRM_Activity_Form_Activity .crm-accordion-header,
+.page-civicrm-activity .CRM_Activity_Form_Activity .crm-accordion-body {
+  margin: inherit;
+}
+
+.crm-container .CRM_Activity_Form_Activity>.crm-activity-view-block>.crm-info-panel tr td.section-shown {
+  padding: inherit !important
+}
+
