@@ -256,3 +256,7 @@ table.crm-info-panel tr.crm-activity-form-block-custom_data td {
   height: auto !important;
 }
 
+/* Why is h3 hidden! */
+.crm-container.ui-dialog .ui-dialog-content h3 {
+  display: inherit !important;
+}
