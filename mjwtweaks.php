@@ -150,3 +150,37 @@ function mjwtweaks_civicrm_alterContent(&$content, $context, $tplName, &$object)
 </style>" . $content;
 }
 
+/**
+ * This hook retrieves links from other modules and injects it into.
+ * the view contact tabs
+ *
+ * @param string $op
+ *   The type of operation being performed.
+ * @param string $objectName
+ *   The name of the object.
+ * @param int $objectId
+ *   The unique identifier for the object.
+ * @param array $links
+ *   (optional) the links array (introduced in v3.2).
+ * @param int $mask
+ *   (optional) the bitmask to show/hide links.
+ * @param array $values
+ *   (optional) the values to fill the links.
+ *
+ * @return null
+ *   the return value is ignored
+ */
+function mjwtweaks_civicrm_links($op, $objectName, &$objectId, &$links, &$mask = NULL, &$values = array()) {
+  if ($op !== 'case.selector.actions') return;
+  if ($objectName !== 'Case') return;
+
+  // Make "Manage" link on contact case tab open in new tab
+  foreach ($links as $index => $link) {
+    if ($link['name'] = 'Manage') {
+      $links[$index]['extra'] = ' target="_blank"';
+      return;
+    }
+  }
+}
+
+
