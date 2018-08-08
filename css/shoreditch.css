@@ -6,6 +6,7 @@ div#extensions td
 }
 
 /* Set background colour for enabled extensions */
+.page-civicrm-admin.page-civicrm-admin-extensions #mainTabContainer #extensions-main table#option11 tr.extension-installed td,
 div#extensions tr.extension-installed,
 div#extensions tr.extension-installed td
 {
