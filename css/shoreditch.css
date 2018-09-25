@@ -268,3 +268,7 @@ table.crm-info-panel tr.crm-activity-form-block-custom_data td {
 .crm-container.ui-dialog .ui-dialog-content h3 {
   display: inherit !important;
 }
+
+html body.admin-menu {
+  padding-top: inherit !important;
+}

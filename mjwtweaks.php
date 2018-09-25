@@ -123,17 +123,13 @@ function mjwtweaks_civicrm_alterSettingsFolders(&$metaDataFolders = NULL) {
   _mjwtweaks_civix_civicrm_alterSettingsFolders($metaDataFolders);
 }
 
-/**
- * Implements hook_coreResourceList
- *
- * @param array $list
- * @param string $region
- */
-function mjwtweaks_civicrm_coreResourceList(&$list, $region) {
-//  Civi::resources()
-//    ->addStyleFile(E::LONG_NAME, 'css/shoreditch.css', 0, 'page-header');
+function mjwtweaks_civicrm_pageRun(&$page) {
+  if ($page instanceof CRM_Contact_Page_View_Summary) {
+    // We override Summary.js so that we can alter the "narrowpage" width with shoreditch
+    CRM_Core_Resources::singleton()
+      ->addScriptFile('uk.co.mjwconsult.mjwtweaks', 'templates/CRM/Contact/Page/View/Summary.js', 2, 'html-header');
+  }
 }
-
 /**
  * Implementation of hook_civicrm_alterContent
  *
@@ -182,5 +178,3 @@ function mjwtweaks_civicrm_links($op, $objectName, &$objectId, &$links, &$mask =
     }
   }
 }
-
-
