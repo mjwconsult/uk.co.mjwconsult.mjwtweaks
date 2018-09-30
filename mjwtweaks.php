@@ -125,9 +125,16 @@ function mjwtweaks_civicrm_alterSettingsFolders(&$metaDataFolders = NULL) {
 
 function mjwtweaks_civicrm_pageRun(&$page) {
   if ($page instanceof CRM_Contact_Page_View_Summary) {
+    $file = 'templates/CRM/Contact/Page/View/Summary.js';
+    $url = CRM_Core_Resources::singleton()->getUrl( 'civicrm', $file, TRUE );
+    $registration = CRM_Core_Region::instance('html-header')->get($url);
+    if ($registration) {
+      CRM_Core_Region::instance('html-header')->update($url, ['disabled' => TRUE]);
+    }
+
     // We override Summary.js so that we can alter the "narrowpage" width with shoreditch
     CRM_Core_Resources::singleton()
-      ->addScriptFile('uk.co.mjwconsult.mjwtweaks', 'templates/CRM/Contact/Page/View/Summary.js', 2, 'html-header');
+      ->addScriptFile('uk.co.mjwconsult.mjwtweaks', $file, 2, 'html-header');
   }
 }
 /**
