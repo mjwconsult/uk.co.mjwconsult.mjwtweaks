@@ -50,8 +50,8 @@ a.action-item.crm-hover-button.disabled
   overflow: hidden;
 }
 
-/* Adjust menubar height */
-
+/* No longer required with CiviCRM 5.8 and latest KAM
+/* Adjust menubar height
 #civicrm-menu
 {
   height: 40px;
@@ -83,12 +83,12 @@ a.has-submenu
   color: #fff;
 }
 
-/* Make the text display on the quicksearch box when using kam */
+/* Make the text display on the quicksearch box when using kam
 #civicrm-menu input#sort_name_navigation
 {
   color: #000;
 }
-
+*/
 
 /* Fix the height of the submit buttons div */
 .page-civicrm-contact-view #crm-container .crm-submit-buttons
