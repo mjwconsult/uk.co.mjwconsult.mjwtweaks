@@ -123,6 +123,41 @@ function mjwtweaks_civicrm_alterSettingsFolders(&$metaDataFolders = NULL) {
   _mjwtweaks_civix_civicrm_alterSettingsFolders($metaDataFolders);
 }
 
+/**
+ * Implements hook_civicrm_navigationMenu().
+ *
+ * @link http://wiki.civicrm.org/confluence/display/CRMDOC/hook_civicrm_navigationMenu
+ *
+ */
+function mjwtweaks_civicrm_navigationMenu(&$menu) {
+  $item[] =  array (
+    'label' => E::ts('MJW Tweaks'),
+    'name'       => 'MJW Tweaks',
+    'url'        => 'civicrm/admin/mjwtweaks',
+    'permission' => 'administer CiviCRM',
+    'operator'   => NULL,
+    'separator'  => NULL,
+  );
+  _mjwtweaks_civix_insert_navigation_menu($menu, 'Administer/Customize Data and Screens', $item[0]);
+  _mjwtweaks_civix_navigationMenu($menu);
+}
+
+/**
+ * Intercept form functions
+ * @param $formName
+ * @param $form
+ */
+function mjwtweaks_civicrm_buildForm($formName, &$form) {
+  switch ($formName) {
+    case 'CRM_Contribute_Form_Contribution_Main':
+    case 'CRM_Event_Form_Registration_Register':
+      if ((boolean)CRM_Mjwtweaks_Settings::getValue('display_hidenotyoumessage')) {
+        CRM_Core_Resources::singleton()->addScriptFile('uk.co.mjwconsult.mjwtweaks', 'js/display_hidenotyoumessage.js');
+      }
+      break;
+  }
+}
+
 function mjwtweaks_civicrm_pageRun(&$page) {
   if ($page instanceof CRM_Contact_Page_View_Summary) {
     $file = 'templates/CRM/Contact/Page/View/Summary.js';
@@ -146,11 +181,13 @@ function mjwtweaks_civicrm_pageRun(&$page) {
  * @return void
  */
 function mjwtweaks_civicrm_alterContent(&$content, $context, $tplName, &$object) {
-  $cssURL = CRM_Core_Resources::singleton()
-    ->getUrl('uk.co.mjwconsult.mjwtweaks', 'css/shoreditch.css');
-  $content = "<style>
+  if (!(boolean)CRM_Mjwtweaks_Settings::getValue('display_disableshoreditchtweaks')) {
+    $cssURL = CRM_Core_Resources::singleton()
+      ->getUrl('uk.co.mjwconsult.mjwtweaks', 'css/shoreditch.css');
+    $content = "<style>
   @import url(\"{$cssURL}\");
 </style>" . $content;
+  }
 }
 
 /**
