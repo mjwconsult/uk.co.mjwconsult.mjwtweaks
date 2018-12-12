@@ -247,11 +247,6 @@ table.crm-info-panel tr.crm-activity-form-block-custom_data td {
   padding: inherit !important
 }
 
-/* Don't add a scrollbar to select2 dropdown unless we need to */
-.select2-results {
-  max-height: unset !important;
-}
-
 /* Make sure we have a little space between elements */
 #crm-container .clear,
 .crm-container .clear {

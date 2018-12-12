@@ -9,6 +9,11 @@ use CRM_Mjwtweaks_ExtensionUtil as E;
  * @link http://wiki.civicrm.org/confluence/display/CRMDOC/hook_civicrm_config
  */
 function mjwtweaks_civicrm_config(&$config) {
+  if (isset(Civi::$statics[__FUNCTION__])) { return; }
+  Civi::$statics[__FUNCTION__] = 1;
+
+  Civi::dispatcher()->addListener('hook_civicrm_coreResourceList', 'mjwtweaks_event_civicrm_coreResourceList', -1000);
+
   _mjwtweaks_civix_civicrm_config($config);
 }
 
@@ -142,6 +147,24 @@ function mjwtweaks_civicrm_navigationMenu(&$menu) {
   _mjwtweaks_civix_navigationMenu($menu);
 }
 
+function mjwtweaks_event_civicrm_coreResourceList($event) {
+  /**$params = $event->getHookValues();
+  if (count($params) < 2) {
+    return;
+  }
+  $hookParams = [
+    'list' => $params[0],
+    'region' => $params[1],
+  ];*/
+
+  // We don't want to add the datepicker icon twice!
+  $file = 'js/add-missing-date-addons.js';
+  $url = CRM_Core_Resources::singleton()->getUrl('org.civicrm.shoreditch', $file, TRUE);
+  $registration = CRM_Core_Region::instance(CRM_Core_Resources::DEFAULT_REGION)->get($url);
+  if ($registration) {
+    CRM_Core_Region::instance(CRM_Core_Resources::DEFAULT_REGION)->update($url, ['disabled' => TRUE]);
+  }
+}
 /**
  * Intercept form functions
  * @param $formName
