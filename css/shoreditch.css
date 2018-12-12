@@ -267,3 +267,37 @@ table.crm-info-panel tr.crm-activity-form-block-custom_data td {
 html body.admin-menu {
   padding-top: inherit !important;
 }
+
+/* Fixes for datatable views with select num per page / first, prev, next, last */
+.crm-container .dataTables_wrapper .dataTables_info {
+  margin: 0 !important;
+}
+
+.crm-container #contact-summary-relationship-tab.view-content .crm-datatable-pager-bottom {
+  height: auto !important;
+}
+
+.page-civicrm-contact #contact-summary-relationship-tab .dataTables_wrapper .crm-datatable-pager-bottom {
+  padding: 0px !important;
+}
+
+.crm-container #contact-summary-relationship-tab.view-content .dataTables_paginate {
+  margin-top: 0px;
+}
+
+.crm-container #contact-summary-relationship-tab.view-content .crm-datatable-pager-top {
+  height: auto !important;
+}
+
+.page-civicrm-contact #contact-summary-relationship-tab .dataTables_wrapper .crm-datatable-pager-top {
+  padding: 0px !important;
+}
+
+.crm-datatable-pager-top {
+  overflow: auto;
+}
+
+.dataTables_length {
+  padding-top: 5px;
+}
+/* END Fixes for datatable views with select num per page / first, prev, next, last */
