@@ -146,6 +146,7 @@ a.has-submenu
 .crm-container .crm-pager
 {
   height: auto;
+  overflow: auto;
 }
 
 /* Fix for dropdown menus being cut-off on contact page */
@@ -301,3 +302,8 @@ html body.admin-menu {
   padding-top: 5px;
 }
 /* END Fixes for datatable views with select num per page / first, prev, next, last */
+
+/** Don't display shoreditch inserted contact tab icons */
+.page-civicrm-contact-view:not([class*='page-civicrm-contact-view-']) .crm-contact-page #mainTabContainer li.crm-tab-button a::before {
+  display: none;
+}
