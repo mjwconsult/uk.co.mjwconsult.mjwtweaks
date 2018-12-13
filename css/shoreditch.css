@@ -307,3 +307,8 @@ html body.admin-menu {
 .page-civicrm-contact-view:not([class*='page-civicrm-contact-view-']) .crm-contact-page #mainTabContainer li.crm-tab-button a::before {
   display: none;
 }
+
+/* Display relationship view dialog without scrollbars */
+.page-civicrm-contact .ui-dialog .crm-relationship-view-block {
+  margin: 0px;
+}
