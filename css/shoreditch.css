@@ -312,3 +312,8 @@ html body.admin-menu {
 .page-civicrm-contact .ui-dialog .crm-relationship-view-block {
   margin: 0px;
 }
+
+/** Fix text display centered in select elements */
+.crm-form-select {
+  line-height: 20px;
+}
