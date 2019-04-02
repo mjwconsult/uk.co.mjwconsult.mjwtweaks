@@ -158,13 +158,33 @@ function mjwtweaks_event_civicrm_coreResourceList($event) {
   ];*/
 
   // We don't want to add the datepicker icon twice!
-  $file = 'js/add-missing-date-addons.js';
-  $url = CRM_Core_Resources::singleton()->getUrl('org.civicrm.shoreditch', $file, TRUE);
-  $registration = CRM_Core_Region::instance(CRM_Core_Resources::DEFAULT_REGION)->get($url);
-  if ($registration) {
-    CRM_Core_Region::instance(CRM_Core_Resources::DEFAULT_REGION)->update($url, ['disabled' => TRUE]);
+  if (mjwtweaks_extension_is_active('org.civicrm.shoreditch')) {
+    $file = 'js/add-missing-date-addons.js';
+    $url = CRM_Core_Resources::singleton()
+      ->getUrl('org.civicrm.shoreditch', $file, TRUE);
+    $registration = CRM_Core_Region::instance(CRM_Core_Resources::DEFAULT_REGION)
+      ->get($url);
+    if ($registration) {
+      CRM_Core_Region::instance(CRM_Core_Resources::DEFAULT_REGION)
+        ->update($url, ['disabled' => TRUE]);
+    }
   }
+  CRM_Core_Resources::singleton()->addScriptFile(E::LONG_NAME, 'js/crm.blockformonajaxload.js');
 }
+
+function mjwtweaks_extension_is_active($extensionKey) {
+  try {
+    $result = civicrm_api3('Extension', 'getsingle', [
+      'is_active' => 1,
+      'full_name' => $extensionKey,
+    ]);
+  }
+  catch (Exception $e) {
+    return FALSE;
+  }
+  return TRUE;
+}
+
 /**
  * Intercept form functions
  * @param $formName
