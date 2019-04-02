@@ -317,3 +317,8 @@ html body.admin-menu {
 .crm-form-select {
   line-height: 20px;
 }
+
+/** Re-enable icons on buttons! */
+.crm-container .crm-form-block .crm-submit-buttons .crm-i {
+  display: inherit !important;
+}
