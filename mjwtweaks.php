@@ -169,7 +169,10 @@ function mjwtweaks_event_civicrm_coreResourceList($event) {
         ->update($url, ['disabled' => TRUE]);
     }
   }
-  CRM_Core_Resources::singleton()->addScriptFile(E::LONG_NAME, 'js/crm.blockformonajaxload.js');
+  if ((boolean)CRM_Mjwtweaks_Settings::getValue('display_blockformajaxload')) {
+    CRM_Core_Resources::singleton()
+      ->addScriptFile(E::LONG_NAME, 'js/crm.blockformonajaxload.js');
+  }
 }
 
 function mjwtweaks_extension_is_active($extensionKey) {
@@ -187,8 +190,8 @@ function mjwtweaks_extension_is_active($extensionKey) {
 
 /**
  * Intercept form functions
- * @param $formName
- * @param $form
+ * @param string $formName
+ * @param CRM_Core_Form $form
  */
 function mjwtweaks_civicrm_buildForm($formName, &$form) {
   switch ($formName) {
@@ -198,6 +201,7 @@ function mjwtweaks_civicrm_buildForm($formName, &$form) {
         CRM_Core_Resources::singleton()->addScriptFile('uk.co.mjwconsult.mjwtweaks', 'js/display_hidenotyoumessage.js');
       }
       break;
+
   }
 }
 

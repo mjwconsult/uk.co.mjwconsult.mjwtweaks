@@ -54,4 +54,19 @@ return [
     'html_type' => 'Checkbox',
     'html_attributes' => [],
   ],
+  'mjwtweaks_display_blockformajaxload' => [
+    'admin_group' => 'mjwtweaks_display',
+    'group_name' => 'MJWTweaks Settings',
+    'group' => 'mjwtweaks',
+    'name' => 'mjwtweaks_display_blockformajaxload',
+    'type' => 'Boolean',
+    'add' => '5.3',
+    'is_domain' => 1,
+    'is_contact' => 0,
+    'default' => FALSE,
+    'description' => 'Block form when AJAX loading (good for waiting for custom data, not so good for mailing screen etc).',
+    'html_type' => 'Checkbox',
+    'html_attributes' => [],
+  ],
+
 ];
