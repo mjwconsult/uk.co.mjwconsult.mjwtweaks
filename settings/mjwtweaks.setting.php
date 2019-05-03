@@ -68,5 +68,4 @@ return [
     'html_type' => 'Checkbox',
     'html_attributes' => [],
   ],
-
 ];

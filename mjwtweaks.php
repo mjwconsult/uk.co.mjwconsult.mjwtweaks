@@ -148,15 +148,6 @@ function mjwtweaks_civicrm_navigationMenu(&$menu) {
 }
 
 function mjwtweaks_event_civicrm_coreResourceList($event) {
-  /**$params = $event->getHookValues();
-  if (count($params) < 2) {
-    return;
-  }
-  $hookParams = [
-    'list' => $params[0],
-    'region' => $params[1],
-  ];*/
-
   // We don't want to add the datepicker icon twice!
   if (mjwtweaks_extension_is_active('org.civicrm.shoreditch')) {
     $file = 'js/add-missing-date-addons.js';
