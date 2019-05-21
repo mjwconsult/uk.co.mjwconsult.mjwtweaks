@@ -15,3 +15,6 @@ A custom stylesheet css/shoreditch.css is loaded so that the shoreditch theme wo
 
 ## Links
 - The "Manage" link on contact case tab opens in a new tab.
+
+## Case UI
+A set of settings allows you to hide lots of bits on the "Manage Case" UI.

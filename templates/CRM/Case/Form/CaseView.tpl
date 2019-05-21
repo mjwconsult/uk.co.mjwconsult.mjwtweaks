@@ -107,26 +107,21 @@
   {/if}
 
   <div class="case-control-panel">
+    {if $hasAccessToAllCases && $caseUI.timeline} &nbsp;
+      {$form.timeline_id.html}{$form._qf_CaseView_next.html} &nbsp;
+      {$form.report_id.html}
+    {/if}
     <div>
       <p>
-        {$form.add_activity_type_id.html}
-        {if $hasAccessToAllCases} &nbsp;
-          {$form.timeline_id.html}{$form._qf_CaseView_next.html} &nbsp;
-          {$form.report_id.html}
-        {/if}
-      </p>
-    </div>
-    <div>
-      <p>
-        {if $hasAccessToAllCases}
+        {if $hasAccessToAllCases && $caseUI.printreport}
           <a class="crm-hover-button action-item no-popup" href="{crmURL p='civicrm/case/report/print' q="all=1&redact=0&cid=$contactID&caseID=$caseId&asn=standard_timeline"}"><i class="crm-i fa-print"></i> {ts}Print Report{/ts}</a>
         {/if}
 
-        {if !empty($exportDoc)}
+        {if !empty($exportDoc) && $caseUI.exportpdf}
           <a class="crm-hover-button action-item" href="{$exportDoc}"><i class="crm-i fa-file-pdf-o"></i> {ts}Export Document{/ts}</a>
         {/if}
 
-        {if $mergeCases}
+        {if $mergeCases && $caseUI.mergecases}
           <a href="#mergeCasesDialog" class="action-item no-popup crm-hover-button case-miniform"><i class="crm-i fa-compress"></i> {ts}Merge Case{/ts}</a>
           {$form._qf_CaseView_next_merge_case.html}
           <span id="mergeCasesDialog" class="hiddenElement">
@@ -134,7 +129,7 @@
           </span>
         {/if}
 
-        {if call_user_func(array('CRM_Core_Permission','giveMeAllACLs'))}
+        {if call_user_func(array('CRM_Core_Permission','giveMeAllACLs')) && $caseUI.assignotherclient}
           <a class="action-item crm-hover-button medium-popup" href="{crmURL p='civicrm/contact/view/case/editClient' h=1 q="reset=1&action=update&id=$caseID&cid=$contactID"}"><i class="crm-i fa-user"></i> {ts}Assign to Another Client{/ts}</a>
         {/if}
       </p>
@@ -200,7 +195,7 @@
    </div><!-- /.crm-accordion-body -->
   </div><!-- /.crm-accordion-wrapper -->
 
-  {if $hasAccessToAllCases}
+  {if $hasAccessToAllCases && $caseUI.otherrelationships}
   <div class="crm-accordion-wrapper collapsed crm-case-other-relationships-block">
     <div class="crm-accordion-header">
       {ts}Other Relationships{/ts}

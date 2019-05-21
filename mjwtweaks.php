@@ -192,7 +192,6 @@ function mjwtweaks_civicrm_buildForm($formName, &$form) {
         CRM_Core_Resources::singleton()->addScriptFile('uk.co.mjwconsult.mjwtweaks', 'js/display_hidenotyoumessage.js');
       }
       break;
-
   }
 }
 
@@ -208,6 +207,17 @@ function mjwtweaks_civicrm_pageRun(&$page) {
     // We override Summary.js so that we can alter the "narrowpage" width with shoreditch
     CRM_Core_Resources::singleton()
       ->addScriptFile('uk.co.mjwconsult.mjwtweaks', $file, 2, 'html-header');
+  }
+  elseif ($page instanceof CRM_Case_Page_Tab) {
+    $caseUI = [
+      'mergecases' => CRM_Mjwtweaks_Settings::getValue('caseui_mergecases'),
+      'printreport' => CRM_Mjwtweaks_Settings::getValue('caseui_printreport'),
+      'exportpdf' => CRM_Mjwtweaks_Settings::getValue('caseui_exportpdf'),
+      'assignotherclient' => CRM_Mjwtweaks_Settings::getValue('caseui_assignotherclient'),
+      'otherrelationships' => CRM_Mjwtweaks_Settings::getValue('caseui_otherrelationships'),
+      'timeline' => CRM_Mjwtweaks_Settings::getValue('caseui_timeline'),
+    ];
+    $page->assign('caseUI', $caseUI);
   }
 }
 /**
