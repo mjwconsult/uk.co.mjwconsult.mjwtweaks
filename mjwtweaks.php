@@ -192,6 +192,10 @@ function mjwtweaks_civicrm_buildForm($formName, &$form) {
         CRM_Core_Resources::singleton()->addScriptFile('uk.co.mjwconsult.mjwtweaks', 'js/display_hidenotyoumessage.js');
       }
       break;
+
+    case 'CRM_Profile_Form_Dynamic':
+      CRM_Mjwtweaks_Profile::contactSubTypeURLParameter($form);
+      break;
   }
 }
 
