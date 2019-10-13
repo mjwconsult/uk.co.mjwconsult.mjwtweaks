@@ -135,14 +135,14 @@ function mjwtweaks_civicrm_alterSettingsFolders(&$metaDataFolders = NULL) {
  *
  */
 function mjwtweaks_civicrm_navigationMenu(&$menu) {
-  $item[] =  array (
+  $item[] =  [
     'label' => E::ts('MJW Tweaks'),
     'name'       => 'MJW Tweaks',
     'url'        => 'civicrm/admin/mjwtweaks',
     'permission' => 'administer CiviCRM',
     'operator'   => NULL,
     'separator'  => NULL,
-  );
+  ];
   _mjwtweaks_civix_insert_navigation_menu($menu, 'Administer/Customize Data and Screens', $item[0]);
   _mjwtweaks_civix_navigationMenu($menu);
 }
@@ -262,7 +262,7 @@ function mjwtweaks_civicrm_alterContent(&$content, $context, $tplName, &$object)
  * @return null
  *   the return value is ignored
  */
-function mjwtweaks_civicrm_links($op, $objectName, &$objectId, &$links, &$mask = NULL, &$values = array()) {
+function mjwtweaks_civicrm_links($op, $objectName, &$objectId, &$links, &$mask = NULL, &$values = []) {
   if ($op !== 'case.selector.actions') return;
   if ($objectName !== 'Case') return;
 
@@ -273,4 +273,144 @@ function mjwtweaks_civicrm_links($op, $objectName, &$objectId, &$links, &$mask =
       return;
     }
   }
+}
+
+/**
+ * Customise the defaults for the tinymce editor on Mosaico
+ *
+ * @param array $config
+ */
+function mjwtweaks_civicrm_mosaicoConfig(&$config) {
+  $config['tinymceConfig']['forced_root_block'] = FALSE;
+  $config['tinymceConfig']['style_formats'] = [
+    0 => [
+      'title' => 'Headings',
+      'items' => [
+        0 => [
+          'title' => 'Heading 1',
+          'format' => 'h1',
+        ],
+        1 => [
+          'title' => 'Heading 2',
+          'format' => 'h2',
+        ],
+        2 => [
+          'title' => 'Heading 3',
+          'format' => 'h3',
+        ],
+        3 => [
+          'title' => 'Heading 4',
+          'format' => 'h4',
+        ],
+        4 => [
+          'title' => 'Heading 5',
+          'format' => 'h5',
+        ],
+        5 => [
+          'title' => 'Heading 6',
+          'format' => 'h6',
+        ],
+      ],
+    ],
+    1 => [
+      'title' => 'Inline',
+      'items' => [
+        0 => [
+          'title' => 'Bold',
+          'icon' => 'bold',
+          'format' => 'bold',
+        ],
+        1 => [
+          'title' => 'Italic',
+          'icon' => 'italic',
+          'format' => 'italic',
+        ],
+        2 => [
+          'title' => 'Underline',
+          'icon' => 'underline',
+          'format' => 'underline',
+        ],
+        3 => [
+          'title' => 'Strikethrough',
+          'icon' => 'strikethrough',
+          'format' => 'strikethrough',
+        ],
+        4 => [
+          'title' => 'Superscript',
+          'icon' => 'superscript',
+          'format' => 'superscript',
+        ],
+        5 => [
+          'title' => 'Subscript',
+          'icon' => 'subscript',
+          'format' => 'subscript',
+        ],
+        6 => [
+          'title' => 'Code',
+          'icon' => 'code',
+          'format' => 'code',
+        ],
+      ],
+    ],
+    2 => [
+      'title' => 'Blocks',
+      'items' => [
+        0 => [
+          'title' => 'Paragraph',
+          'format' => 'p',
+        ],
+        1 => [
+          'title' => 'Blockquote',
+          'format' => 'blockquote',
+        ],
+        2 => [
+          'title' => 'Div',
+          'format' => 'div',
+        ],
+        3 => [
+          'title' => 'Pre',
+          'format' => 'pre',
+        ],
+        4 => [
+          'title' => 'Bullet list',
+          'icon' => 'bullist',
+          'cmd' => 'InsertUnorderedList',
+        ],
+        5 => [
+          'title' => 'Numbered list',
+          'icon' => 'numlist',
+          'cmd' => 'InsertOrderedList',
+        ],
+      ],
+    ],
+    3 => [
+      'title' => 'Alignment',
+      'items' => [
+        0 => [
+          'title' => 'Left',
+          'icon' => 'alignleft',
+          'format' => 'alignleft',
+        ],
+        1 => [
+          'title' => 'Center',
+          'icon' => 'aligncenter',
+          'format' => 'aligncenter',
+        ],
+        2 => [
+          'title' => 'Right',
+          'icon' => 'alignright',
+          'format' => 'alignright',
+        ],
+        3 => [
+          'title' => 'Justify',
+          'icon' => 'alignjustify',
+          'format' => 'alignjustify',
+        ],
+      ],
+    ],
+    4 => [
+      'title' => 'Remove Formatting',
+      'cmd' => 'removeformat',
+    ],
+  ];
 }

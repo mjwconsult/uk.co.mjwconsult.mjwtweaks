@@ -18,3 +18,7 @@ A custom stylesheet css/shoreditch.css is loaded so that the shoreditch theme wo
 
 ## Case UI
 A set of settings allows you to hide lots of bits on the "Manage Case" UI.
+
+## Mosaico
+
+Customise the tinymce editor to set force_root_block = FALSE and add lists to style options.
