@@ -185,16 +185,23 @@ function mjwtweaks_extension_is_active($extensionKey) {
  * @param CRM_Core_Form $form
  */
 function mjwtweaks_civicrm_buildForm($formName, &$form) {
+  $min = ((boolean) \Civi::settings()->get('debug_enabled')) ? '' : '.min';
+
   switch ($formName) {
     case 'CRM_Contribute_Form_Contribution_Main':
     case 'CRM_Event_Form_Registration_Register':
       if ((boolean)CRM_Mjwtweaks_Settings::getValue('display_hidenotyoumessage')) {
-        CRM_Core_Resources::singleton()->addScriptFile('uk.co.mjwconsult.mjwtweaks', 'js/display_hidenotyoumessage.js');
+        CRM_Core_Resources::singleton()->addScriptFile('uk.co.mjwconsult.mjwtweaks', "js/display_hidenotyoumessage{$min}.js");
       }
       break;
 
-    case 'CRM_Profile_Form_Dynamic':
-      CRM_Mjwtweaks_Profile::contactSubTypeURLParameter($form);
+    case 'CRM_Case_Form_Activity':
+      foreach (['caseui_activitypriority', 'caseui_activitysendcopy', 'caseui_activityschedulefollowup'] as $setting) {
+        if (empty(\Civi::settings()->get("mjwtweaks_{$setting}"))) {
+          CRM_Core_Resources::singleton()
+            ->addScriptFile(E::LONG_NAME, "js/{$setting}{$min}.js", -50, 'page-header');
+        }
+      }
       break;
   }
 }

@@ -1,5 +1,3 @@
-
-
 CRM.$(function($) {
   $(document).ajaxStart(function() {
     $('div.crm-form-block').closest('form').block();
