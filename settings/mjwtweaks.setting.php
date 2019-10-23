@@ -49,7 +49,7 @@ return [
     'add' => '5.3',
     'is_domain' => 1,
     'is_contact' => 0,
-    'default' => FALSE,
+    'default' => TRUE,
     'description' => 'Disable loading the shoreditch.css customisations included in this extension.',
     'html_type' => 'Checkbox',
     'html_attributes' => [],
