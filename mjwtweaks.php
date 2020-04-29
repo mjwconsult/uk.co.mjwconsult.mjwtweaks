@@ -148,18 +148,6 @@ function mjwtweaks_civicrm_navigationMenu(&$menu) {
 }
 
 function mjwtweaks_event_civicrm_coreResourceList($event) {
-  // We don't want to add the datepicker icon twice!
-  if (mjwtweaks_extension_is_active('org.civicrm.shoreditch')) {
-    $file = 'js/add-missing-date-addons.js';
-    $url = CRM_Core_Resources::singleton()
-      ->getUrl('org.civicrm.shoreditch', $file, TRUE);
-    $registration = CRM_Core_Region::instance(CRM_Core_Resources::DEFAULT_REGION)
-      ->get($url);
-    if ($registration) {
-      CRM_Core_Region::instance(CRM_Core_Resources::DEFAULT_REGION)
-        ->update($url, ['disabled' => TRUE]);
-    }
-  }
   if ((boolean)CRM_Mjwtweaks_Settings::getValue('display_blockformajaxload')) {
     CRM_Core_Resources::singleton()
       ->addScriptFile(E::LONG_NAME, 'js/crm.blockformonajaxload.js');
@@ -168,7 +156,7 @@ function mjwtweaks_event_civicrm_coreResourceList($event) {
 
 function mjwtweaks_extension_is_active($extensionKey) {
   try {
-    $result = civicrm_api3('Extension', 'getsingle', [
+    civicrm_api3('Extension', 'getsingle', [
       'is_active' => 1,
       'full_name' => $extensionKey,
     ]);
@@ -207,19 +195,7 @@ function mjwtweaks_civicrm_buildForm($formName, &$form) {
 }
 
 function mjwtweaks_civicrm_pageRun(&$page) {
-  if ($page instanceof CRM_Contact_Page_View_Summary) {
-    $file = 'templates/CRM/Contact/Page/View/Summary.js';
-    $url = CRM_Core_Resources::singleton()->getUrl( 'civicrm', $file, TRUE );
-    $registration = CRM_Core_Region::instance('html-header')->get($url);
-    if ($registration) {
-      CRM_Core_Region::instance('html-header')->update($url, ['disabled' => TRUE]);
-    }
-
-    // We override Summary.js so that we can alter the "narrowpage" width with shoreditch
-    CRM_Core_Resources::singleton()
-      ->addScriptFile('uk.co.mjwconsult.mjwtweaks', $file, 2, 'html-header');
-  }
-  elseif ($page instanceof CRM_Case_Page_Tab) {
+  if ($page instanceof CRM_Case_Page_Tab) {
     $caseUI = [
       'mergecases' => CRM_Mjwtweaks_Settings::getValue('caseui_mergecases'),
       'printreport' => CRM_Mjwtweaks_Settings::getValue('caseui_printreport'),
@@ -240,9 +216,9 @@ function mjwtweaks_civicrm_pageRun(&$page) {
  * @return void
  */
 function mjwtweaks_civicrm_alterContent(&$content, $context, $tplName, &$object) {
-  if (!(boolean)CRM_Mjwtweaks_Settings::getValue('display_disableshoreditchtweaks')) {
+  if ((boolean)CRM_Mjwtweaks_Settings::getValue('display_enableadminimaltweaks')) {
     $cssURL = CRM_Core_Resources::singleton()
-      ->getUrl('uk.co.mjwconsult.mjwtweaks', 'css/shoreditch.css');
+      ->getUrl('uk.co.mjwconsult.mjwtweaks', 'css/adminimal.css', TRUE);
     $content = "<style>
   @import url(\"{$cssURL}\");
 </style>" . $content;
@@ -288,6 +264,7 @@ function mjwtweaks_civicrm_links($op, $objectName, &$objectId, &$links, &$mask =
  * @param array $config
  */
 function mjwtweaks_civicrm_mosaicoConfig(&$config) {
+  $config['tinymceConfig']['browser_spellcheck'] = TRUE;
   $config['tinymceConfig']['forced_root_block'] = FALSE;
   $config['tinymceConfig']['style_formats'] = [
     0 => [

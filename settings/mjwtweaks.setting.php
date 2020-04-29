@@ -40,17 +40,17 @@ return [
     'html_type' => 'Checkbox',
     'html_attributes' => [],
   ],
-  'mjwtweaks_display_disableshoreditchtweaks' => [
+  'mjwtweaks_display_enableadminimaltweaks' => [
     'admin_group' => 'mjwtweaks_display',
     'group_name' => 'MJWTweaks Settings',
     'group' => 'mjwtweaks',
-    'name' => 'mjwtweaks_display_disableshoreditchtweaks',
+    'name' => 'mjwtweaks_display_enableadminimaltweaks',
     'type' => 'Boolean',
-    'add' => '5.3',
+    'add' => '5.24',
     'is_domain' => 1,
     'is_contact' => 0,
-    'default' => TRUE,
-    'description' => 'Disable loading the shoreditch.css customisations included in this extension.',
+    'default' => FALSE,
+    'description' => 'Enable loading adminimal.css customisations included in this extension.',
     'html_type' => 'Checkbox',
     'html_attributes' => [],
   ],
@@ -68,7 +68,6 @@ return [
     'html_type' => 'Checkbox',
     'html_attributes' => [],
   ],
-
   'mjwtweaks_caseui_printreport' => [
     'admin_group' => 'mjwtweaks_caseui',
     'admin_grouptitle' => 'Case UI settings',

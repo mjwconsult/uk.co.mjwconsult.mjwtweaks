@@ -1,0 +1,6 @@
+/* CiviCRM tweaks for drupal adminimal theme */
+.crm-public-form-item fieldset,
+fieldset.crm-public-form-item,
+#crm-container #billing-payment-block fieldset {
+  box-shadow: inherit;
+}
