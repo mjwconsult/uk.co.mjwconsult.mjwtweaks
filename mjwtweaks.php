@@ -11,7 +11,6 @@ use CRM_Mjwtweaks_ExtensionUtil as E;
 function mjwtweaks_civicrm_config(&$config) {
   if (isset(Civi::$statics[__FUNCTION__])) { return; }
   Civi::$statics[__FUNCTION__] = 1;
-
   Civi::dispatcher()->addListener('hook_civicrm_coreResourceList', 'mjwtweaks_event_civicrm_coreResourceList', -1000);
 
   _mjwtweaks_civix_civicrm_config($config);
