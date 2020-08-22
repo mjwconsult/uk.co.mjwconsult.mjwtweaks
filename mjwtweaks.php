@@ -179,6 +179,18 @@ function mjwtweaks_civicrm_buildForm($formName, &$form) {
     case 'CRM_Event_Form_Registration_Register':
       if ((boolean)CRM_Mjwtweaks_Settings::getValue('display_hidenotyoumessage')) {
         CRM_Core_Resources::singleton()->addScriptFile('uk.co.mjwconsult.mjwtweaks', "js/display_hidenotyoumessage{$min}.js");
+        // The following requires https://github.com/civicrm/civicrm-core/pull/18236
+        switch ($formName) {
+          case 'CRM_Contribute_Form_Contribution_Main':
+            CRM_Core_Region::instance('contribution-main-not-you-block')
+              ->update('default', ['disabled' => TRUE]);
+            break;
+
+          case 'CRM_Event_Form_Registration_Register':
+            CRM_Core_Region::instance('event-register-not-you-block')
+              ->update('default', ['disabled' => TRUE]);
+            break;
+        }
       }
       break;
 
