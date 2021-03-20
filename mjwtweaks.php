@@ -216,6 +216,10 @@ function mjwtweaks_civicrm_pageRun(&$page) {
       'timeline' => CRM_Mjwtweaks_Settings::getValue('caseui_timeline'),
     ];
     $page->assign('caseUI', $caseUI);
+    if ((boolean) \Civi::settings()->get('mjwtweaks_caseui_hidecopytocase')) {
+      CRM_Core_Resources::singleton()
+        ->addScriptFile(E::LONG_NAME, 'js/hide_copytocase.js');
+    }
   }
 }
 /**

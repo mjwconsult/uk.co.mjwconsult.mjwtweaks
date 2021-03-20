@@ -196,4 +196,18 @@ return [
     'html_type' => 'Checkbox',
     'html_attributes' => [],
   ],
+  'mjwtweaks_caseui_hidecopytocase' => [
+    'admin_group' => 'mjwtweaks_caseui',
+    'group_name' => 'MJWTweaks Settings',
+    'group' => 'mjwtweaks',
+    'name' => 'mjwtweaks_caseui_hidecopytocase',
+    'type' => 'Boolean',
+    'add' => '5.35',
+    'is_domain' => 1,
+    'is_contact' => 0,
+    'default' => FALSE,
+    'description' => 'Hide "Copy to case" on Manage Case.',
+    'html_type' => 'Checkbox',
+    'html_attributes' => [],
+  ],
 ];
