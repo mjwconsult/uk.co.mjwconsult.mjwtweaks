@@ -1,5 +1,9 @@
 # Release Notes
 
+## Release 1.17 (not yet released)
+
+* Add Mjwtweaks.contacttype_household API to enable/disable the Household contact type.
+
 ## Release 1.16
 
 * Compatibility with CiviCRM 5.40.
