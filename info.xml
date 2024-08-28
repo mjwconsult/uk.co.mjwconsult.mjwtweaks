@@ -14,13 +14,23 @@
     <url desc="Support">https://mjw.pt/support/mjwtweaks</url>
     <url desc="Licensing">http://www.gnu.org/licenses/agpl-3.0.html</url>
   </urls>
-  <releaseDate>2021-12-29</releaseDate>
-  <version>1.17-dev</version>
+  <releaseDate>2024-08-28</releaseDate>
+  <version>1.17</version>
   <develStage>stable</develStage>
   <compatibility>
-    <ver>5.40</ver>
+    <ver>5.75</ver>
   </compatibility>
   <civix>
     <namespace>CRM/Mjwtweaks</namespace>
+    <format>23.02.1</format>
   </civix>
+  <mixins>
+    <mixin>menu-xml@1.0.0</mixin>
+    <mixin>setting-php@1.0.0</mixin>
+    <mixin>smarty-v2@1.0.1</mixin>
+  </mixins>
+  <classloader>
+    <psr0 prefix="CRM_" path="."/>
+    <psr4 prefix="Civi\" path="Civi"/>
+  </classloader>
 </extension>
