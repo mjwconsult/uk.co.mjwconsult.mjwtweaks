@@ -20,3 +20,15 @@ A set of settings allows you to hide various UI elements in the Case UI.
 ## Mosaico
 
 Customise the tinymce editor to set force_root_block = FALSE and add lists to style options.
+
+## TODO
+
+Locale setup:
+
+12h:
+Date Format: Complete Date and Time: %B %E%f, %Y %l:%M %P
+Date Format: Time Only: %l:%M %P
+
+24h:
+Date Format: Complete Date and Time: %B %E%f, %Y %l:%M %P
+Date Format: Time Only: %l:%M %P
