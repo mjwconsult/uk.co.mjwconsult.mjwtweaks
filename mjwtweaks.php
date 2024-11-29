@@ -21,25 +21,6 @@ function mjwtweaks_civicrm_enable() {
   _mjwtweaks_civix_civicrm_enable();
 }
 
-/**
- * Implements hook_civicrm_navigationMenu().
- *
- * @link http://wiki.civicrm.org/confluence/display/CRMDOC/hook_civicrm_navigationMenu
- *
- */
-function mjwtweaks_civicrm_navigationMenu(&$menu) {
-  $item[] =  [
-    'label' => E::ts('MJW Tweaks'),
-    'name'       => 'MJW Tweaks',
-    'url'        => 'civicrm/admin/mjwtweaks',
-    'permission' => 'administer CiviCRM',
-    'operator'   => NULL,
-    'separator'  => NULL,
-  ];
-  _mjwtweaks_civix_insert_navigation_menu($menu, 'Administer/Customize Data and Screens', $item[0]);
-  _mjwtweaks_civix_navigationMenu($menu);
-}
-
 function mjwtweaks_extension_is_active($extensionKey) {
   try {
     civicrm_api3('Extension', 'getsingle', [
@@ -64,7 +45,7 @@ function mjwtweaks_civicrm_buildForm($formName, &$form) {
   switch ($formName) {
     case 'CRM_Contribute_Form_Contribution_Main':
     case 'CRM_Event_Form_Registration_Register':
-      if ((boolean)CRM_Mjwtweaks_Settings::getValue('display_hidenotyoumessage')) {
+      if ((boolean)\Civi::settings()->get('mjwtweaks_display_hidenotyoumessage')) {
         CRM_Core_Resources::singleton()->addScriptFile('uk.co.mjwconsult.mjwtweaks', "js/display_hidenotyoumessage{$min}.js");
         // The following requires https://github.com/civicrm/civicrm-core/pull/18236
         switch ($formName) {
@@ -108,12 +89,12 @@ function mjwtweaks_civicrm_buildForm($formName, &$form) {
 function mjwtweaks_civicrm_pageRun(&$page) {
   if ($page instanceof CRM_Case_Page_Tab) {
     $caseUI = [
-      'mergecases' => CRM_Mjwtweaks_Settings::getValue('caseui_mergecases'),
-      'printreport' => CRM_Mjwtweaks_Settings::getValue('caseui_printreport'),
-      'exportpdf' => CRM_Mjwtweaks_Settings::getValue('caseui_exportpdf'),
-      'assignotherclient' => CRM_Mjwtweaks_Settings::getValue('caseui_assignotherclient'),
-      'otherrelationships' => CRM_Mjwtweaks_Settings::getValue('caseui_otherrelationships'),
-      'timeline' => CRM_Mjwtweaks_Settings::getValue('caseui_timeline'),
+      'mergecases' => \Civi::settings()->get('mjwtweaks_caseui_mergecases'),
+      'printreport' => \Civi::settings()->get('mjwtweaks_caseui_printreport'),
+      'exportpdf' => \Civi::settings()->get('mjwtweaks_caseui_exportpdf'),
+      'assignotherclient' => \Civi::settings()->get('mjwtweaks_caseui_assignotherclient'),
+      'otherrelationships' => \Civi::settings()->get('mjwtweaks_caseui_otherrelationships'),
+      'timeline' => \Civi::settings()->get('mjwtweaks_caseui_timeline'),
     ];
     $page->assign('caseUI', $caseUI);
     if ((boolean) \Civi::settings()->get('mjwtweaks_caseui_hidecopytocase')) {

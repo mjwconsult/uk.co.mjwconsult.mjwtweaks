@@ -25,161 +25,179 @@
 
 return [
   'mjwtweaks_display_hidenotyoumessage' => [
-    'admin_group' => 'mjwtweaks_display',
-    'admin_grouptitle' => 'Display Settings',
-    'admin_groupdescription' => 'Tweaks for display.',
-    'group_name' => 'MJWTweaks Settings',
-    'group' => 'mjwtweaks',
     'name' => 'mjwtweaks_display_hidenotyoumessage',
     'type' => 'Boolean',
     'add' => '5.3',
     'is_domain' => 1,
     'is_contact' => 0,
     'default' => FALSE,
-    'description' => 'Hide the "Not You" message/link on Contribution/Event Registration pages',
-    'html_type' => 'Checkbox',
+    'title' => 'Hide the "Not You" message/link on Contribution/Event Registration pages',
+    'html_type' => 'checkbox',
     'html_attributes' => [],
+    'settings_pages' => [
+      'mjwtweaks' => [
+        'weight' => 10,
+      ]
+    ]
   ],
   'mjwtweaks_caseui_printreport' => [
-    'admin_group' => 'mjwtweaks_caseui',
-    'admin_grouptitle' => 'Case UI settings',
-    'admin_groupdescription' => 'Tweaks for Cases UI.',
-    'group_name' => 'MJWTweaks Settings',
-    'group' => 'mjwtweaks',
     'name' => 'mjwtweaks_caseui_printreport',
     'type' => 'Boolean',
     'add' => '5.13',
     'is_domain' => 1,
     'is_contact' => 0,
     'default' => TRUE,
-    'description' => 'Show "Print Report" on Manage cases',
-    'html_type' => 'Checkbox',
+    'title' => 'Show "Print Report" on Manage cases',
+    'html_type' => 'checkbox',
     'html_attributes' => [],
+    'settings_pages' => [
+      'mjwtweaks' => [
+        'weight' => 20,
+      ]
+    ]
   ],
   'mjwtweaks_caseui_exportpdf' => [
-    'admin_group' => 'mjwtweaks_caseui',
-    'group_name' => 'MJWTweaks Settings',
-    'group' => 'mjwtweaks',
     'name' => 'mjwtweaks_caseui_exportpdf',
     'type' => 'Boolean',
     'add' => '5.13',
     'is_domain' => 1,
     'is_contact' => 0,
     'default' => TRUE,
-    'description' => 'Show "Export as PDF" on Manage cases',
-    'html_type' => 'Checkbox',
+    'title' => 'Show "Export as PDF" on Manage cases',
+    'html_type' => 'checkbox',
     'html_attributes' => [],
+    'settings_pages' => [
+      'mjwtweaks' => [
+        'weight' => 30,
+      ]
+    ]
   ],
   'mjwtweaks_caseui_mergecases' => [
-    'admin_group' => 'mjwtweaks_caseui',
-    'group_name' => 'MJWTweaks Settings',
-    'group' => 'mjwtweaks',
     'name' => 'mjwtweaks_caseui_mergecases',
     'type' => 'Boolean',
     'add' => '5.13',
     'is_domain' => 1,
     'is_contact' => 0,
     'default' => TRUE,
-    'description' => 'Show "Merge Cases" on Manage cases',
-    'html_type' => 'Checkbox',
+    'title' => 'Show "Merge Cases" on Manage cases',
+    'html_type' => 'checkbox',
     'html_attributes' => [],
+    'settings_pages' => [
+      'mjwtweaks' => [
+        'weight' => 40,
+      ]
+    ]
   ],
   'mjwtweaks_caseui_assignotherclient' => [
-    'admin_group' => 'mjwtweaks_caseui',
-    'group_name' => 'MJWTweaks Settings',
-    'group' => 'mjwtweaks',
     'name' => 'mjwtweaks_caseui_assignotherclient',
     'type' => 'Boolean',
     'add' => '5.13',
     'is_domain' => 1,
     'is_contact' => 0,
     'default' => TRUE,
-    'description' => 'Show "Assign to other client" on Manage cases',
-    'html_type' => 'Checkbox',
+    'title' => 'Show "Assign to other client" on Manage cases',
+    'html_type' => 'checkbox',
     'html_attributes' => [],
+    'settings_pages' => [
+      'mjwtweaks' => [
+        'weight' => 50,
+      ]
+    ]
   ],
   'mjwtweaks_caseui_timeline' => [
-    'admin_group' => 'mjwtweaks_caseui',
-    'group_name' => 'MJWTweaks Settings',
-    'group' => 'mjwtweaks',
     'name' => 'mjwtweaks_caseui_timeline',
     'type' => 'Boolean',
     'add' => '5.13',
     'is_domain' => 1,
     'is_contact' => 0,
     'default' => TRUE,
-    'description' => 'Show "Add Timeline / Activity Audit" on Manage cases',
-    'html_type' => 'Checkbox',
+    'title' => 'Show "Add Timeline / Activity Audit" on Manage cases',
+    'html_type' => 'checkbox',
     'html_attributes' => [],
+    'settings_pages' => [
+      'mjwtweaks' => [
+        'weight' => 60,
+      ]
+    ]
   ],
   'mjwtweaks_caseui_otherrelationships' => [
-    'admin_group' => 'mjwtweaks_caseui',
-    'group_name' => 'MJWTweaks Settings',
-    'group' => 'mjwtweaks',
     'name' => 'mjwtweaks_caseui_otherrelationships',
     'type' => 'Boolean',
     'add' => '5.13',
     'is_domain' => 1,
     'is_contact' => 0,
     'default' => TRUE,
-    'description' => 'Show "Other relationships" on Manage cases',
-    'html_type' => 'Checkbox',
+    'title' => 'Show "Other relationships" on Manage cases',
+    'html_type' => 'checkbox',
     'html_attributes' => [],
+    'settings_pages' => [
+      'mjwtweaks' => [
+        'weight' => 70,
+      ]
+    ]
   ],
   'mjwtweaks_caseui_activityschedulefollowup' => [
-    'admin_group' => 'mjwtweaks_caseui',
-    'group_name' => 'MJWTweaks Settings',
-    'group' => 'mjwtweaks',
     'name' => 'mjwtweaks_caseui_activityschedulefollowup',
     'type' => 'Boolean',
     'add' => '5.13',
     'is_domain' => 1,
     'is_contact' => 0,
     'default' => TRUE,
-    'description' => 'Show Schedule Follow-up on Case activities',
-    'html_type' => 'Checkbox',
+    'title' => 'Show Schedule Follow-up on Case activities',
+    'html_type' => 'checkbox',
     'html_attributes' => [],
+    'settings_pages' => [
+      'mjwtweaks' => [
+        'weight' => 80,
+      ]
+    ]
   ],
   'mjwtweaks_caseui_activitysendcopy' => [
-    'admin_group' => 'mjwtweaks_caseui',
-    'group_name' => 'MJWTweaks Settings',
-    'group' => 'mjwtweaks',
     'name' => 'mjwtweaks_caseui_activitysendcopy',
     'type' => 'Boolean',
     'add' => '5.13',
     'is_domain' => 1,
     'is_contact' => 0,
     'default' => TRUE,
-    'description' => 'Show "Send a copy" on Case activities',
-    'html_type' => 'Checkbox',
+    'title' => 'Show "Send a copy" on Case activities',
+    'html_type' => 'checkbox',
     'html_attributes' => [],
+    'settings_pages' => [
+      'mjwtweaks' => [
+        'weight' => 90,
+      ]
+    ]
   ],
   'mjwtweaks_caseui_activitypriority' => [
-    'admin_group' => 'mjwtweaks_caseui',
-    'group_name' => 'MJWTweaks Settings',
-    'group' => 'mjwtweaks',
     'name' => 'mjwtweaks_caseui_activitypriority',
     'type' => 'Boolean',
     'add' => '5.13',
     'is_domain' => 1,
     'is_contact' => 0,
     'default' => TRUE,
-    'description' => 'Show "Priority" on Case activities',
-    'html_type' => 'Checkbox',
+    'title' => 'Show "Priority" on Case activities',
+    'html_type' => 'checkbox',
     'html_attributes' => [],
+    'settings_pages' => [
+      'mjwtweaks' => [
+        'weight' => 100,
+      ]
+    ]
   ],
   'mjwtweaks_caseui_hidecopytocase' => [
-    'admin_group' => 'mjwtweaks_caseui',
-    'group_name' => 'MJWTweaks Settings',
-    'group' => 'mjwtweaks',
     'name' => 'mjwtweaks_caseui_hidecopytocase',
     'type' => 'Boolean',
     'add' => '5.35',
     'is_domain' => 1,
     'is_contact' => 0,
     'default' => FALSE,
-    'description' => 'Hide "Copy to case" on Manage Case.',
-    'html_type' => 'Checkbox',
+    'title' => 'Hide "Copy to case" on Manage Case.',
+    'html_type' => 'checkbox',
     'html_attributes' => [],
+    'settings_pages' => [
+      'mjwtweaks' => [
+        'weight' => 110,
+      ]
+    ]
   ],
 ];
