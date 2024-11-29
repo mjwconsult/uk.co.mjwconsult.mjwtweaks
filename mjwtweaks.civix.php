@@ -75,6 +75,7 @@ class CRM_Mjwtweaks_ExtensionUtil {
     return self::CLASS_PREFIX . '_' . str_replace('\\', '_', $suffix);
   }
 
+
 }
 
 use CRM_Mjwtweaks_ExtensionUtil as E;

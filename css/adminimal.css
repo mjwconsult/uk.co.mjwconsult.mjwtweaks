@@ -1,5 +1,0 @@
-/* CiviCRM tweaks for drupal adminimal theme */
-#crm-container fieldset,
-.crm-container fieldset {
-  box-shadow: inherit;
-}

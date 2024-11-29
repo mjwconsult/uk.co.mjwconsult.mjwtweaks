@@ -4,19 +4,6 @@ require_once 'mjwtweaks.civix.php';
 use CRM_Mjwtweaks_ExtensionUtil as E;
 
 /**
- * Implements hook_civicrm_config().
- *
- * @link http://wiki.civicrm.org/confluence/display/CRMDOC/hook_civicrm_config
- */
-function mjwtweaks_civicrm_config(&$config) {
-  if (isset(Civi::$statics[__FUNCTION__])) { return; }
-  Civi::$statics[__FUNCTION__] = 1;
-  Civi::dispatcher()->addListener('hook_civicrm_coreResourceList', 'mjwtweaks_event_civicrm_coreResourceList', -1000);
-
-  _mjwtweaks_civix_civicrm_config($config);
-}
-
-/**
  * Implements hook_civicrm_install().
  *
  * @link http://wiki.civicrm.org/confluence/display/CRMDOC/hook_civicrm_install
@@ -51,13 +38,6 @@ function mjwtweaks_civicrm_navigationMenu(&$menu) {
   ];
   _mjwtweaks_civix_insert_navigation_menu($menu, 'Administer/Customize Data and Screens', $item[0]);
   _mjwtweaks_civix_navigationMenu($menu);
-}
-
-function mjwtweaks_event_civicrm_coreResourceList($event) {
-  if ((boolean)CRM_Mjwtweaks_Settings::getValue('display_blockformajaxload')) {
-    CRM_Core_Resources::singleton()
-      ->addScriptFile(E::LONG_NAME, 'js/crm.blockformonajaxload.js');
-  }
 }
 
 function mjwtweaks_extension_is_active($extensionKey) {
@@ -139,56 +119,6 @@ function mjwtweaks_civicrm_pageRun(&$page) {
     if ((boolean) \Civi::settings()->get('mjwtweaks_caseui_hidecopytocase')) {
       CRM_Core_Resources::singleton()
         ->addScriptFile(E::LONG_NAME, 'js/hide_copytocase.js');
-    }
-  }
-}
-/**
- * Implementation of hook_civicrm_alterContent
- *
- * Adding civicrm_stripe.js in a way that works for webforms and (some) Civi forms.
- * hook_civicrm_buildForm is not called for webforms
- *
- * @return void
- */
-function mjwtweaks_civicrm_alterContent(&$content, $context, $tplName, &$object) {
-  if ((boolean)CRM_Mjwtweaks_Settings::getValue('display_enableadminimaltweaks')) {
-    $cssURL = CRM_Core_Resources::singleton()
-      ->getUrl('uk.co.mjwconsult.mjwtweaks', 'css/adminimal.css', TRUE);
-    $content = "<style>
-  @import url(\"{$cssURL}\");
-</style>" . $content;
-  }
-}
-
-/**
- * This hook retrieves links from other modules and injects it into.
- * the view contact tabs
- *
- * @param string $op
- *   The type of operation being performed.
- * @param string $objectName
- *   The name of the object.
- * @param int $objectId
- *   The unique identifier for the object.
- * @param array $links
- *   (optional) the links array (introduced in v3.2).
- * @param int $mask
- *   (optional) the bitmask to show/hide links.
- * @param array $values
- *   (optional) the values to fill the links.
- *
- * @return null
- *   the return value is ignored
- */
-function mjwtweaks_civicrm_links($op, $objectName, &$objectId, &$links, &$mask = NULL, &$values = []) {
-  if ($op !== 'case.selector.actions') return;
-  if ($objectName !== 'Case') return;
-
-  // Make "Manage" link on contact case tab open in new tab
-  foreach ($links as $index => $link) {
-    if ($link['name'] = 'Manage') {
-      $links[$index]['extra'] = ' target="_blank"';
-      return;
     }
   }
 }
